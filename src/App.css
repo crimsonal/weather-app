@@ -28,7 +28,7 @@ html {
 }
 
 .city-search {
-  width: 100%;
+  width: 80%;
   max-width: 400px;
   box-sizing: border-box;
   border: 2px solid rgb(204, 204, 204);
