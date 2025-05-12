@@ -41,7 +41,7 @@ function App() {
       "Saturday"
     ]
     const currentDate = new Date();
-    const date = `${WeekDays[currentDate.getDay()]}${currentDate.getDate()}${months[currentDate.getMonth()]}`
+    const date = `${WeekDays[currentDate.getDay()]}, ${months[currentDate.getMonth()]} ${currentDate.getDate()}, ${currentDate.getFullYear()}`
     return date
   }
 
@@ -105,9 +105,21 @@ function App() {
             {weather.data.name}, <span>{weather.data.sys.country}</span>
           </h2>
         </div>
+        <div className="date"> 
+          <span>{toDateFunction()}</span>
+        </div>
+        <div className="icon-temp">
+          <img className="" src={`https://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`} alt={weather.data.weather[0].description} />
+          { Math.round(((weather.data.main.temp)) * (9/5)) + 32}
+          <sup className="deg">°F</sup>
+        </div>
+        <div className="des-wind">
+          <p>{weather.data.weather[0].description.toUpperCase()}</p>
+          <p>Wind Speed: {Math.round(weather.data.wind.speed * 2.237)} mph</p>
+        </div>
+          
       </div>
     )} 
-    {/* date is next.. */}
   </div>)
 }
 
